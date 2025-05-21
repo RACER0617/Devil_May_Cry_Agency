@@ -267,7 +267,7 @@ section { position: relative; overflow: hidden; }
    background: 
     linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, transparent 20%),
     linear-gradient(to top,   rgba(0, 0, 0, 0.8) 0%, transparent 20%),
-    url('../media/photo/dante vs vergil.jpg') center/cover no-repeat;
+    url('../media/photo/dante_vs_vergil.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -650,4 +650,6 @@ section { position: relative; overflow: hidden; }
     display: none !important;
   }
 }
+
+
 
