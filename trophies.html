@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devil May Cry Agency</title>
+  <link rel="stylesheet" href="css/agents.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+</head>
+<body>
+  <header class="site-header" data-animate data-delay="100">
+    <nav class="main-nav">
+      <a href="history.html" data-animate data-delay="200">История</a>
+      <a href="agents.html" data-animate data-delay="300">Агенты</a>
+      <a href="index.html" class="logo" data-animate data-delay="400">
+        <img src="myaat5cnway51.webp" alt="DMC Logo">
+      </a>
+      <a href="trophies.html" data-animate data-delay="500">Трофеи</a>
+      <a href="order.html" data-animate data-delay="600">Заказ</a>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero-section" data-animate>
+    <video class="hero-video" src="media/video/lady_bg.mp4" autoplay loop muted playsinline></video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="media/photo/png_image.png" alt="Devil May Cry" data-animate data-delay="300">
+      <h1 class="tagline" data-animate data-delay="400">Оружие Devil May Cry</h1>
+      <br>
+      <a href="#agents" class="btn-history" data-animate data-delay="600">Оружие</a>
+    </div>
+  </section>
+
+  <section id="agents" class="glass with-video-bg" data-animate data-delay="200">
+    <video class="bg-video" src="media/video/vergil_bg.mp4" autoplay loop muted playsinline></video>
+    <h2 class="slider-title">Наши трофеи</h2>
+      <div class="agent-buttons">
+        <div class="agent-btn" data-agent="dante"
+            data-audio="media/audio/rebellion.mp3"
+            style="background-image:url('media/photo/Rebellion_DMC5.webp')"
+            data-h3="Оружие Данте"
+            data-p="Меч Данте, созданный Спардой. Символизирует его наследие, объединяет человеческую и демоническую сущности, обеспечивая мощь и мастерство в бою.">
+          <div class="agent-name">Ребеллион</div>
+        </div>
+        <div class="agent-btn" data-agent="nero"
+            data-audio="media/audio/ebony.mp3"
+            style="background-image:url('media/photo/DMC1.webp')"
+            data-h3="Оружие Данте"
+            data-p="Пистолеты Данте, настроенные для точности и скорострельности. Наполнены демонической силой, идеальны для стильных комбо и дальних атак.">
+          <div class="agent-name">Эбони и Айвори</div>
+        </div>
+        <div class="agent-btn" data-agent="lady"
+            data-audio="media/audio/redqueen.mp3"
+            style="background-image:url('media/photo/DMC4_Red_Queen.webp')"
+            data-h3="Оружие Неро"
+            data-p="Меч Неро с двигателем внутреннего сгорания. Система Exceed усиливает атаки, делая его грозным оружием, подвластным только Неро.">
+          <div class="agent-name">Алая Королева</div>
+        </div>
+        <div class="agent-btn" data-agent="trish"
+            data-audio="media/audio/calinaenn.mp3"
+            style="background-image:url('media/photo/Kalina_Ann_DMC4SE.webp')"
+            data-h3="Оружие Леди"
+            data-p="Ракетница Леди, названная в честь её матери. Универсальное оружие для мощных дальних атак и ближнего боя, символ мести.">
+          <div class="agent-name">Калина Энн</div>
+        </div>
+        <div class="agent-btn agent-virgil" data-agent="vergil"
+            data-audio="media/audio/yamato.mp3"
+            style="background-image:url('media/photo/Yamato_DMC5SE.webp')"
+            data-h3="Оружие Вергилия"
+            data-p="Катана Вергила, выкованная Спардой. Разделяет человеческую и демоническую сущности, воплощая смерть и точность в бою.">
+          <div class="agent-name">Ямато</div>
+        </div>
+      </div>
+  </section>
+
+  <section id="order" class="order-section glass-bg" data-animate data-delay="300">
+    <div class="order-content">
+      <h2 data-animate data-delay="400">Готовы ликвидировать демона?</h2>
+      <br>
+      <button class="btn-order" data-animate data-delay="500">Оформить заказ</button>
+    </div>
+  </section>
+
+  <div id="agent-modal" class="modal-overlay" style="display:none;">
+    <section class="modal-content glass with-video-bg" data-animate data-delay="200">
+      <div class="agents-image">
+        <img src="" alt="">
+      </div>
+      <div class="agents-text">
+        <h2 data-animate data-delay="300"></h2>
+        <h3 data-animate data-delay="300"></h3>
+        <p></p>
+        <div class="audio-wrapper">
+          <audio class="audio-player" controls preload="none" data-plyr-config='{ "invertTime": false }'>
+            <source src="" type="audio/mp3" />
+          </audio>
+        </div>
+        <br>
+        <button class="btn-order" data-animate data-delay="500">Оформить заказ</button>
+      </div>
+      <button class="modal-close">×</button>
+    </section>
+  </div>
+
+  <footer class="site-footer" data-animate data-delay="200">
+    <p>© 2025 Devil May Cry Agency. Все права защищены.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="script/agents.js"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+  // инициализация плееров внутри всех модалок
+  document.addEventListener('DOMContentLoaded', () => {
+    // находит каждый audio.audio-player и инициализирует его
+    const players = Plyr.setup('.audio-player', {
+      controls: ['play', 'progress', 'volume'],
+      volume: 1,
+    });
+  });
+</script>
+</body>
+</html>

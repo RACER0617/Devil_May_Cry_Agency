@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devil May Cry Agency — Оформление заказа</title>
+  <link rel="stylesheet" href="css/order.css">
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=fe0645a2-961a-4eb0-ae1f-36a245397532&lang=ru_RU"></script>
+</head>
+
+<body>
+  <!-- Шапка из вашего index.html -->
+  <header class="site-header" data-animate data-delay="100">
+    <nav class="main-nav">
+      <a href="history.html" data-animate data-delay="200">История</a>
+      <a href="agents.html" data-animate data-delay="300">Агенты</a>
+      <a href="index.html" class="logo" data-animate data-delay="400">
+        <img src="myaat5cnway51.webp" alt="DMC Logo">
+      </a>
+      <a href="trophies.html" data-animate data-delay="500">Трофеи</a>
+      <a href="order.html" class="active" data-animate data-delay="600">Заказ</a>
+    </nav>
+  </header>
+  <!-- Hero Section с видео-фоном -->
+  <div class="hero-section">
+    <video autoplay muted loop class="hero-video">
+      <source src="media/video/last_battle_bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <main class="glass-bg order-page" data-animate data-delay="200">
+    <h2 data-animate data-delay="300">Оформление заказа на устранение демона</h2>
+    <form id="orderForm" class="order-form" data-animate data-delay="400">
+      <label>
+        Кличка заказчика
+        <input type="text" id="customerName" required>
+      </label>
+      <label>
+        Электронная почта
+        <input type="email" id="email" required>
+      </label>
+      <label>
+        Контактный номер
+        <input type="tel" id="phone" required>
+      </label>
+      <label>
+        Адрес заказа
+        <input type="text" id="address" required placeholder="Например: улица, город, страна">
+      </label>
+      <label>
+        Тип демона
+        <select id="demonType" required>
+          <option value="">Выберите...</option>
+          <option>Имп</option>
+          <option>Артератор</option>
+          <option>Бич</option>
+          <option>Архдемон</option>
+        </select>
+      </label>
+      <label>
+        Тип проблемы
+        <select id="problemType" required>
+          <option value="">Выберите...</option>
+          <option value="weak">Слабый</option>
+          <option value="standard">Стандартный</option>
+          <option value="elite">Элитный</option>
+          <option value="boss">Босс</option>
+        </select>
+      </label>
+      <label>
+        Ранг заказа
+        <select id="rank" required>
+          <option value="">Выберите...</option>
+          <option value="D">D</option>
+          <option value="C">C</option>
+          <option value="B">B</option>
+          <option value="A">A</option>
+          <option value="S">S</option>
+          <option value="SS">SS</option>
+          <option value="SSS">SSS</option>
+        </select>
+      </label>
+      <label>
+        Агент
+        <select id="agent" required>
+          <option value="">Выберите...</option>
+          <option value="Данте">Данте</option>
+          <option value="Неро">Неро</option>
+          <option value="Леди">Леди</option>
+          <option value="Триш">Триш</option>
+        </select>
+      </label>
+      <label class="full-width">
+        Дополнительные комментарии
+        <textarea id="comments" rows="4"></textarea>
+      </label>
+
+      <!-- Блок цены -->
+      <div id="priceBox" class="price-box" data-animate data-delay="500">
+        Цена: <span id="priceValue">–</span> $
+      </div>
+
+      <!-- Карта -->
+      <div id="map" class="map-container" data-animate data-delay="600"></div>
+
+      <button type="submit" class="btn-order" data-animate data-delay="700">Отправить заказ</button>
+      <button type="button" id="clearForm" class="btn-clear" data-animate data-delay="700">Очистить форму</button>
+    </form>
+  </main>
+
+  <!-- Модальное окно подтверждения -->
+  <div id="confirmationModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Заявка принята!</h3>
+      <p>Ожидайте звонка: <span id="callTime"></span></p>
+      <p>Кодовое слово: <strong id="codeWord"></strong></p>
+      <button id="closeModal" class="btn-agents">Закрыть</button>
+    </div>
+  </div>
+
+  <footer class="site-footer" data-animate data-delay="200">
+    <p>© 2025 Devil May Cry Agency. Все права защищены.</p>
+  </footer>
+  <!-- Ваш скрипт -->
+  <script src="script/order.js"></script>
+</body>
+</html>

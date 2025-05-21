@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devil May Cry Agency</title>
+  <link rel="stylesheet" href="css/agents.css">
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+</head>
+<body>
+  <header class="site-header" data-animate data-delay="100">
+    <nav class="main-nav">
+      <a href="history.html" data-animate data-delay="200">История</a>
+      <a href="agents.html" data-animate data-delay="300">Агенты</a>
+      <a href="index.html" class="logo" data-animate data-delay="400">
+        <img src="myaat5cnway51.webp" alt="DMC Logo">
+      </a>
+      <a href="trophies.html" data-animate data-delay="500">Трофеи</a>
+      <a href="order.html" data-animate data-delay="600">Заказ</a>
+    </nav>
+  </header>
+
+  <section id="hero" class="hero-section" data-animate>
+    <video class="hero-video" src="media/video/devil_may_cry_bg.mp4" autoplay loop muted playsinline></video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="media/photo/png_image.png" alt="Devil May Cry" data-animate data-delay="300">
+      <h1 class="tagline" data-animate data-delay="400">Агенты Devil May Cry</h1>
+      <br>
+      <a href="#agents" class="btn-history" data-animate data-delay="600">Агенты</a>
+    </div>
+  </section>
+
+  <section id="agents" class="glass with-video-bg" data-animate data-delay="200">
+    <video class="bg-video" src="media/video/last_battle_bg.mp4" autoplay loop muted playsinline></video>
+    <h2 class="slider-title">Наши агенты</h2>
+    <div class="agent-buttons">
+      <div class="agent-btn" data-agent="dante"
+          data-audio="media/audio/dante.mp3"
+          style="background-image:url('media/photo/dante.png')"
+          data-h3="Джек-пот!"
+          data-p="Данте — сын демона Спарды и человека Евы, легендарный охотник на демонов. Известен саркастическим юмором и мастерством в бою с мечами и пистолетами. Основатель 'Devil May Cry', борется с демонами.">
+        <div class="agent-name">Данте</div>
+      </div>
+      <div class="agent-btn" data-agent="nero"
+          data-audio="media/audio/nero.mp3"
+          style="background-image:url('media/photo/nero.png')"
+          data-h3="Deadweight"
+          data-p="Неро — молодой охотник на демонов, сын Вергилия и внук Спарды. Обладает демонической рукой Devil Bringer и пистолетом Синяя Роза. С неукротимой волей продолжает семейную легенду.">
+        <div class="agent-name">Неро</div>
+      </div>
+
+      <div class="agent-btn" data-agent="lady"
+          data-audio="media/audio/lady.mp3"
+          style="background-image:url('media/photo/DMC5_Lady.webp')"
+          data-h3="Не Мэри."
+          data-p="Леди — профессиональная охотница, специалист по тяжелому вооружению. Использует ракетницы и гранатометы. Имеет личные счеты с демоническим миром.">
+        <div class="agent-name">Леди</div>
+      </div>
+      <div class="agent-btn" data-agent="trish"
+          data-audio="media/audio/trish.mp3"
+          style="background-image:url('media/photo/DMC5_Trish.webp')"
+          data-h3="Devil's Never Cry"
+          data-p="Триш — демон, созданная Мундусом по образу Евы, матери Данте. Владеет молниеносными атаками и электрическими способностями, также использует меч Спарды.">
+        <div class="agent-name">Триш</div>
+      </div>
+
+      <div class="agent-btn agent-virgil" data-agent="vergil"
+          data-audio="media/audio/vergil.mp3"
+          style="background-image:url('media/photo/Vergil_DMC5.webp')"
+          data-h3="Where's your motivation?"
+          data-p="Вергилий — брат-близнец Данте, мастер меча Ямато. Стремится к абсолютной власти, следуя философии Спарды. Обладает холодным расчетливым умом.">
+        <div class="agent-name">Вергилий</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order" class="order-section glass-bg" data-animate data-delay="300">
+    <div class="order-content">
+      <h2 data-animate data-delay="400">Готовы ликвидировать демона?</h2>
+      <br>
+      <button class="btn-order" data-animate data-delay="500">Оформить заказ</button>
+    </div>
+  </section>
+
+  <div id="agent-modal" class="modal-overlay" style="display:none;">
+    <section class="modal-content glass with-video-bg" data-animate data-delay="200">
+      <div class="agents-image">
+        <img src="media/photo/dante.png" alt="Картинка">
+      </div>
+      <div class="agents-text">
+        <h2 aria-hidden="true" data-animate data-delay="300">Имя агента</h2>
+        <h3 aria-hidden="true" data-animate data-delay="300">Цитата агента</h3>
+        <p></p>
+        <div class="audio-wrapper">
+          <audio class="audio-player" controls preload="none" data-plyr-config='{ "invertTime": false }'>
+            <source src="media/audio/dante.mp3" type="audio/mp3">
+          </audio>
+        </div>
+        <br>
+        <button class="btn-order" data-animate data-delay="500">Оформить заказ</button>
+      </div>
+      <button class="modal-close">&times;</button>
+    </section>
+  </div>
+
+  <footer class="site-footer" data-animate data-delay="200">
+    <p>&copy; 2025 Devil May Cry Agency. Все права защищены.</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="script/agents.js"></script>
+  <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const players = Plyr.setup('.audio-player', {
+        controls: ['play', 'progress', 'volume'],
+        volume: 1,
+      });
+    });
+  </script>
+</body>
+</html>

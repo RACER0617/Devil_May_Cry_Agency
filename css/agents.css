@@ -1,0 +1,1019 @@
+@font-face {
+  font-family: 'Inkulinati';
+  src: url('Inkulinati-Regular.otf') format('opentype');
+}
+:root {
+  --bg-dark: rgba(26,26,26,0.85);
+  --glass-blur: blur(10px);
+  --accent: #e22222;
+  --font-main: 'Inkulinati', Metal Gothic, sans-serif;
+  --header-height: 80px;
+  --plyr-color-main: #800000;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-main);
+  background: #111;
+  color: #eee;
+  padding-top: var(--header-height);
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-dark);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  padding: 0 2rem;
+}
+
+.main-nav {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.main-nav a {
+  color: #eee;
+  text-decoration: none;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+  font-family: 'Inkulinati', sans-serif;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.main-nav a:hover {
+  color: #fff;
+}
+
+.main-nav a:hover::after {
+  width: 100%;
+  background: #ff4d4d;
+  height: 3px;
+}
+
+.logo img {
+  height: 90px;
+  transition: transform 0.3s ease;
+}
+
+.main-nav a.active::after {
+  width: 80%;
+  background: #e22222;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent 60%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.h1 { margin: 1.5rem 0; font-size: 2rem; }
+
+.btn-order, .btn-history, .btn-agents {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: #eee;
+  background: conic-gradient(from 0deg, #e22222, #000, #e22222);
+  border: none;
+  cursor: pointer;
+  font-family: 'Inkulinati', sans-serif;
+  text-decoration: none;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-history, .btn-agents {
+  margin-top: 2rem;
+}
+
+.btn-order::before, .btn-history::before, .btn-agents::before {
+  content: '';
+  position: absolute;
+  top: -2px; bottom: -2px; left: -2px; right: -2px;
+  background: conic-gradient(from 0deg, #e22222, #000, #e22222);
+  z-index: -2;
+}
+
+.btn-order::after, .btn-history::after, .btn-agents::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: #111;
+  z-index: -1;
+}
+
+.btn-order:hover, .btn-history:hover, .btn-agents:hover {
+  color: #000;
+  background: linear-gradient(to right, #000, #e22222);
+}
+
+.btn-order:hover::before, .btn-history:hover::before, .btn-agents:hover::before {
+  background: conic-gradient(from 0deg, #000, #e22222, #000);
+}
+
+.btn-order:hover::after, .btn-history:hover::after, .btn-agents:hover::after {
+  background: #eee;
+}
+
+section { position: relative; overflow: hidden; }
+
+.with-video-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.with-video-bg .bg-video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.about-text, .agents-text {
+  position: relative;
+  padding: 2rem;
+  background: none !important;
+}
+
+.about-text {
+  margin-left: 50%;
+}
+
+.agents-text {
+  margin-right: 50%;
+}
+
+.about-text h2, .agents-text h2 {
+  font-size: 4rem;
+  color: #ff4d4d;
+  position: relative;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  background: 
+    url('../media/photo/title_underbar_black.png') left bottom 25px no-repeat,
+    url('../media/photo/title_underbar_red.png') left bottom -30px no-repeat;
+  background-size: 
+    100% auto,
+    50% auto;
+  z-index: 2;
+}
+
+h2.slider-title {
+  font-size: 4rem;
+  color: #ff4d4d;
+  position: relative;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  text-align: left;
+  background: 
+    url('../media/photo/title_underbar_black.png') left bottom 40px no-repeat,
+    url('../media/photo/title_underbar_red.png') left bottom 15px no-repeat;
+  background-size: 
+    100% auto,
+    50% auto;
+  z-index: 2;
+}
+
+.about-text h3, .agents-text h3 {
+  font-size: 2.5rem;
+  color: #fff;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.about-text p, .agents-text p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #eeba0f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1;
+}
+
+.about-image, .agents-image {
+  position: absolute;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.about-image {
+  left: 0;
+}
+
+.agents-image {
+  right: 0;
+}
+
+.about-image img, .agents-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* опционально: задний фон панели управления */
+.plyr--audio .plyr__controls {
+  background: rgba(128, 0, 0, 0.1);
+}
+
+/* ползунок прогресса */
+.plyr__progress--played,
+.plyr__volume--display {
+  background-color: #800000;
+}
+
+/* кнопка Play/Pause */
+.plyr__control.plyr__control--overlaid,
+.plyr__control:hover,
+.plyr__control.plyr__control--pressed {
+  color: #800000;
+}
+
+/* делаем фон контролов полностью прозрачным */
+.plyr--audio .plyr__controls {
+  background: transparent !important;
+}
+/* ползунки (прогресс и громкость) оставляем красно-бордовыми */
+:root { --plyr-color-main: #800000; }
+
+
+.order-section {
+  height: 100vh;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, transparent 80%),
+              url('../media/photo/the-swordsman-son-devil-may-cry-5-4k-2w.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-content {
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #000;
+}
+
+[data-animate] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+[data-animate].animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.loaded .hero-content > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Адаптивный YouTube-плеер */
+.video-container {
+  position: relative;
+  width: 100%;
+  margin: 2rem auto;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+}
+
+
+/* Медиазапрос для мобильных устройств */
+@media (max-width: 768px) {
+  /* Фиксация шапки */
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 1rem;
+    height: var(--header-height);
+    background: var(--bg-dark);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+    order: -1;
+    margin: 0 auto !important;
+    padding: 10px 0;
+  }
+
+  .logo img {
+    max-width: 300px; /* Увеличили размер */
+    width: auto;
+    height: auto;
+    max-height: 80px; /* Ограничение высоты */
+    display: inline-block; /* Для центрирования через text-align */
+    margin: 0 auto;
+    position: static; /* Убрали position: center (невалидное значение) */
+  }
+
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Выпадающее меню-шторка */
+  .dropdown {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  /* Активное состояние меню */
+  .main-nav.active .dropdown {
+    max-height: 100vh;
+    padding: 2rem 0;
+  }
+
+  /* Стили пунктов меню */
+  .main-nav a {
+    font-size: 1.4rem;
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.3s forwards;
+  }
+
+  /* Задержки для анимации */
+  .main-nav.active a:nth-child(1) { animation-delay: 0.1s; }
+  .main-nav.active a:nth-child(2) { animation-delay: 0.2s; }
+  .main-nav.active a:nth-child(3) { animation-delay: 0.3s; }
+  .main-nav.active a:nth-child(4) { animation-delay: 0.4s; }
+
+  /* Пункт "Главная" */
+  .mobile-home {
+    display: block !important;
+    order: 1;
+  }
+
+  /* Исправление изображения */
+  .hero-content img {
+    max-width: 85vw;
+    height: auto;
+    margin: 2rem auto;
+  }
+
+  /* Анимация появления */
+  @keyframes slideDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Скрытие десктопных элементов */
+  .main-nav:not(.active) > a:not(.logo) {
+    display: none !important;
+  }
+
+   /* === Слой текста над изображениями === */
+  .glass {
+    position: relative;
+  }
+  .about-image, .agents-image {
+    width: 100%;
+    height: auto;
+  }
+  .about-text, .agents-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    padding: 1rem;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    z-index: 2;
+    margin: 0;
+  }
+
+  .hero-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .about-text h2, 
+  .agents-text h2 {
+    font-size: 2.5rem;
+    padding-bottom: 2rem; /* Уменьшаем отступ */
+    margin-bottom: 1.5rem; /* Корректируем отступ снизу */
+    background: 
+      url('../media/photo/title_underbar_black.png') left bottom 15px no-repeat,
+      url('../media/photo/title_underbar_red.png') left bottom -5px no-repeat;
+    background-size: 
+      100% auto,
+      40% auto; /* Уменьшаем размер красной полосы */
+  }
+
+  /* Адаптируем позиционирование текстовых блоков */
+  .about-text, .agents-text {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 90% !important;
+    margin: 2rem auto !important;
+    background: rgba(0,0,0,0.7); /* Добавляем фон для читаемости */
+  }
+
+  .tagline {
+    text-align: center !important;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Выравнивание всех кнопок */
+  .btn-order, 
+  .btn-history, 
+  .btn-agents {
+    display: flex !important;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Подгоняем шрифты */
+  .about-text h2, .agents-text h2 { font-size: 2.5rem; }
+  .about-text h3, .agents-text h3 { font-size: 1.8rem; }
+  .about-text p, .agents-text p { font-size: 1.1rem; }
+
+  .with-video-bg .bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .hero-video {
+    object-position: right; /* Фокус на правой части видео */
+    width: 150%; /* Увеличиваем ширину для кадрирования */
+    left: -25%; /* Смещаем видео влево */
+  }
+
+  .hero-content {
+    align-items: center; /* Центрируем контент */
+    padding-right: 15%; /* Смещаем контент влево */
+  }
+}
+
+/* Медиазапрос для планшетов/ноутбуков до 1200px — повторяет логику мобильной шапки */
+@media (max-width: 1200px) {
+  /* Фиксация шапки */
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 1rem;
+    height: var(--header-height);
+    background: var(--bg-dark);
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  /* Логотип */
+  .logo {
+    width: 100%;
+    text-align: center;
+    order: -1;
+    margin: 0 auto !important;
+    padding: 10px 0;
+  }
+  .logo img {
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    max-height: 80px;
+    display: inline-block;
+    margin: 0 auto;
+    position: static;
+  }
+
+  /* Главное меню в столбик */
+  .main-nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Выпадающее меню-шторка */
+  .dropdown {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    background: var(--bg-dark);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  /* Активное состояние меню */
+  .main-nav.active .dropdown {
+    max-height: 100vh;
+    padding: 2rem 0;
+  }
+
+  /* Стили пунктов меню */
+  .main-nav a {
+    font-size: 1.4rem;
+    padding: 1rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDown 0.3s forwards;
+  }
+  .main-nav.active a:nth-child(1) { animation-delay: 0.1s; }
+  .main-nav.active a:nth-child(2) { animation-delay: 0.2s; }
+  .main-nav.active a:nth-child(3) { animation-delay: 0.3s; }
+  .main-nav.active a:nth-child(4) { animation-delay: 0.4s; }
+
+  /* Пункт "Главная" */
+  .mobile-home {
+    display: block !important;
+    order: 1;
+  }
+
+  /* Скрываем десктопные пункты, пока меню не открыто */
+  .main-nav:not(.active) > a:not(.logo) {
+    display: none !important;
+  }
+
+  /* Анимация появления пунктов */
+  @keyframes slideDown {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Отключение планшетно-мобильных стилей на широких экранах */
+@media (min-width: 1201px) {
+  .mobile-home,
+  .dropdown {
+    display: none !important;
+  }
+}
+
+/* ==== НОВАЯ СЕКЦИЯ ==== */
+.agent-buttons {
+  background-position: center top; /* было center */
+  background-size: cover;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%; max-width: 1200px;
+  margin: 0 auto;
+  height: 500px; /* задаёт высоту слайдера */
+}
+.agent-btn {
+  position: relative;
+  aspect-ratio: 3/4;
+  background-position: center top;
+  background-size: cover;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* ← ВАЖНО */
+}
+.agent-name {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem;
+  background: rgba(0,0,0,0.8);
+  text-align: center;
+  font-size: 1.2rem;
+  color: #eee;
+  transition: color 0.3s ease, background 0.3s ease; /* ← ДОБАВЛЕНО */
+}
+
+.slick-arrow {
+  color: #eee;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: -80px !important; /* Отступ слева */
+}
+
+.slick-next {
+  right: -80px !important; /* Отступ справа */
+}
+/* Hover-эффекты */
+.agent-btn:hover {
+  background-color: rgba(255,255,255,0.2);
+  box-shadow: 0 0 15px rgba(226,34,34,0.8);
+}
+.agent-btn:hover .agent-name {
+  color: #e22222;
+}
+/* Адаптив для мобилок */
+@media (max-width: 768px) {
+  .agent-buttons { grid-template-columns: 1fr; }
+  .agent-virgil { width: 100%; justify-self: stretch; }
+}
+
+#agents.with-video-bg {
+  display: flex;                /* переопределяем глобальный flex */
+  flex-direction: column;       /* вертикальный поток */
+  align-items: flex-start;      /* выравнивание по левому краю */
+  padding: 4rem 1rem;           /* отступы сверху/снизу */
+}
+
+/* Оверлей остался без изменений */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Новая «секция» модалки */
+/* Копируем стили .with-video-bg и .agents-text, но задаём фон-блюр */
+/* 1) Обновляем контейнер модалки */
+.modal-content.with-video-bg {
+  aspect-ratio: 4/3;
+  max-height: 90vh;
+  overflow: auto;
+}
+
+.modal-content.with-video-bg .agents-text {
+  order: 1;
+  flex: 1;                    /* текст занимает доступное пространство */
+}
+
+.modal-content.with-video-bg .agents-image {
+  order: 2;
+  flex: 1;                    /* картинка — справа, занимает ту же долю */
+  text-align: right;          /* если нужно выровнять img внутрь */
+}
+.modal-content.with-video-bg .agents-image img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+}
+/* Скрываем видео-фон */
+.modal-content.with-video-bg .bg-video {
+  display: none;
+}
+
+/* Ширины блоков можно скорректировать по вкусу */
+.modal-content .agents-image {
+  width: 40%;
+}
+.modal-content .agents-text {
+  width: 60%;
+}
+
+/* Убедимся, что секция модалки — flex-контейнер с вертикальным центрированием */
+.modal-content.with-video-bg {
+  display: flex;              /* включаем флекс */
+  flex-direction: row;        /* текст слева, картинка справа */
+  align-items: center;        /* центрируем дочерние элементы по вертикали */
+  justify-content: space-between;
+}
+
+/* Делаем саму agents-image флексом, чтобы картинка центрировалась внутри */
+.modal-content.with-video-bg .agents-image {
+  display: flex;
+  align-items: center;        /* по вертикали */
+  justify-content: center;    /* по горизонтали, если нужно */
+  width: 40%;                 /* или любая ваша пропорция */
+}
+
+/* Принудительно ограничиваем высоту картинки, чтобы она не «прыгалa» */
+.modal-content.with-video-bg .agents-image img {
+  max-height: 80vh;           /* не больше 80% высоты экрана */
+  height: auto;
+  width: auto;                /* сохраняем пропорции */
+}
+
+/* Заголовки и абзацы — копируем ваши стили */
+.modal-content .agents-text h2 {
+  font-size: 4rem;
+  color: #ff4d4d;
+  position: relative;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+  background: 
+    url('../media/photo/title_underbar_black.png') left bottom 35px no-repeat,
+    url('../media/photo/title_underbar_red.png') left bottom -5px no-repeat;
+  background-size: 
+    100% auto,
+    50% auto;
+  z-index: 2;
+}
+
+.modal-content .agents-text h3 {
+  font-size: 2.5rem;
+  color: #fff;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  margin-bottom: 2rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.modal-content .agents-text p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #eeba0f;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1;
+  margin-bottom: 2rem;
+}
+
+/* Кнопка закрытия */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 40px;
+  line-height: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0 10px;
+  z-index: 1001;
+  transition: 0.3s;
+}
+
+.modal-close:hover {
+  color: #e22222;
+  transform: rotate(90deg);
+}
+
+/* Контейнер слайдера */
+.slider {
+    width: 100%;           /* Полная ширина */
+    margin: 0 auto;        /* Центрирование */
+    padding: 0;            /* Без отступов */
+}
+
+/* Отдельные слайды */
+.slide {
+    position: relative;    /* Для позиционирования содержимого */
+    text-align: center;    /* Центрированный текст */
+    background-color: #f0f0f0; /* Светлый фон для слайдов */
+    padding: 20px;         /* Внутренние отступы */
+    box-sizing: border-box; /* Учитывать padding в ширине */
+}
+
+.slick-dots li button:before {
+    margin-top: 5rem;
+    color: #fff !important;
+}
+
+@media (max-width: 768px) {
+  .agent-btn {
+    position: relative;
+    aspect-ratio: 1/1;
+    background-position: center top;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* ← ВАЖНО */
+  }
+  /* Само модальное окно */
+  .modal-content.with-video-bg {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    height: auto !important;
+  }
+
+  /* 1. Фон остаётся как есть (не трогаем) */
+  /* 1. Само модальное окно */
+  .modal-content.with-video-bg {
+    position: relative !important;
+    padding: 0 !important;
+    background: none !important;
+    overflow: visible !important;
+    min-height: auto !important;
+
+    /* новые правила: */
+    width: 100vw !important;       /* на всю ширину вьюпорта */
+    max-height: 100vh !important;  /* не больше высоты экрана */
+    height: auto !important;       /* подстраивается по содержимому */
+  }
+
+
+  /* 2. Фотография */
+  .modal-content.with-video-bg .agents-image {
+    position: relative !important;
+    z-index: 1 !important;
+    width: 100% !important;
+  }
+
+  .modal-content.with-video-bg .agents-image img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: 70vh !important;
+    object-fit: contain !important;
+  }
+
+  /* 3. Текст поверх фото, в нижней половине */
+  .modal-content.with-video-bg .agents-text {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    padding: 1.5rem 1rem !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    z-index: 2 !important;
+  }
+
+  /* Заголовок H2 */
+  .modal-content.with-video-bg .agents-text h2 {
+    font-size: 2.5rem !important;
+    padding-bottom: 1.2rem !important;
+    margin-bottom: 0.8rem !important;
+    background:
+      url('../media/photo/title_underbar_black.png') left bottom 8px no-repeat,
+      url('../media/photo/title_underbar_red.png') left bottom -10px no-repeat !important;
+    background-size:
+      100% auto,
+      35% auto !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  /* Заголовок H3 */
+  .modal-content.with-video-bg .agents-text h3 {
+    font-size: 1.8rem !important;
+    padding: 0.4rem !important;
+    margin: 0.6rem 0 !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  /* Параграф */
+  .modal-content.with-video-bg .agents-text p {
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+    padding: 0.4rem !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+   .modal-content.with-video-bg .audio-wrapper {
+    margin-top: 1.1rem !important; /* было меньше, можно варьировать */
+  }
+
+  /* Кнопка закрытия поверх всех слоёв */
+  .modal-close {
+    position: absolute !important;
+    top: -50px !important;
+    right: 15px !important;
+    z-index: 4 !important;
+  }
+
+  .slick-dots li button:before {
+    margin-top: 1rem;
+    color: #fff !important;
+  }
+
+  .slick-arrow {
+    display: none !important;
+  }
+
+  .agent-buttons .slick-slide {
+    padding: 0;
+  }
+  .agent-btn {
+    max-width: 90vw;
+  }
+}
